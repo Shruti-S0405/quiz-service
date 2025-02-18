@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.zephyra.question_service.DTO.QuestionWrapper;
 import com.zephyra.question_service.Model.Question;
 import com.zephyra.question_service.service.QuestionService;
 
@@ -36,4 +38,28 @@ public class QuestionController {
     public ResponseEntity<String> addQuestion(@RequestBody Question question){
         return questionService.addQuestion(question);
     } 
+
+    @GetMapping("generate")
+    public ResponseEntity<List<Integer>> getQuestionsForQuiz
+        (@RequestParam String catagoryName, @RequestParam Integer numQuestions){
+        
+        return questionService.getQuestionsForQuiz(catagoryName, numQuestions);
+    }
+
+    @PostMapping("getQuestions")
+    public ResponseEntity<List<QuestionWrapper>> getQuestionFromId(@RequestParam List<Integer> questionIds){
+        return questionService.getQuestionFromId(questionIds);
+    }
+
+    @PostMapping("getScore")
+    public ResponseEntity<Integer>  getScore(@RequestBody List<Response> responses)
+    {
+        return questionService.getScore(responses);
+    }
+
 }
+
+
+// generate
+// getQuestions(questionid)
+// getScore

@@ -1,8 +1,10 @@
 package com.zephyra.question_service.DTO;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class QuestionWrapper {
     private Integer Id;
     private String questionText;
