@@ -47,7 +47,7 @@ public class QuestionController {
     }
 
     @PostMapping("getQuestions")
-    public ResponseEntity<List<QuestionWrapper>> getQuestionFromId(@RequestParam List<Integer> questionIds){
+    public ResponseEntity<List<QuestionWrapper>> getQuestionFromId(@RequestBody List<Integer> questionIds){
         return questionService.getQuestionFromId(questionIds);
     }
 

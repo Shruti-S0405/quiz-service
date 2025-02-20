@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToMany;
 
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
-    List<QuestionWrapper> findByCategory(String category);
+    List<Question> findByCategory(String category);
 
     @Query(value = "SELECT q.id from question q where q.category = :category ORDER BY RANDOM() LIMIT :numQ", nativeQuery = true)
     List<Integer> findRandomQuestionsByCategory(String category, int numQ);
