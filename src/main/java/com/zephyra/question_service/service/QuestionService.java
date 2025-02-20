@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.zephyra.*;
 import com.zephyra.question_service.DTO.QuestionWrapper;
 import com.zephyra.question_service.Model.Question;
@@ -60,8 +59,8 @@ public class QuestionService {
                 wrapper.setId(question.getId());
                 wrapper.setQuestionText(question.getQuestionText());
                 wrapper.setOption1(question.getOption1());
-                wrapper.setOption1(question.getOption2());
-                wrapper.setOption1(question.getOption3());
+                wrapper.setOption2(question.getOption2());
+                wrapper.setOption3(question.getOption3());
                 wrappers.add(wrapper);
             }
             return new ResponseEntity<>(wrappers, HttpStatus.OK);
